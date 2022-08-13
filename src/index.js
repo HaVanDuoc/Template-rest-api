@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const usersRouter = require('./routes/users')
+const authRouter = require('./routes/auth')
 
 dotenv.config();
 
@@ -19,9 +21,9 @@ app.use(morgan('common'))
 app.get("/", (req, res) => {
     res.send("Homepage")
 })
-app.get("/users", (req, res) => {
-    res.send("Users page")
-})
+
+app.use("/api/users", usersRouter)
+app.use("/api/auth", authRouter)
 
 app.listen(1810, () => {
     console.log("Server is running!")
