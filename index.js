@@ -11,6 +11,11 @@ mongoose.connect(process.env.MONGODB_URL, () => {
     console.log("Connected to MongoDB")
 });
 
+// middleware
+app.use(express.json())
+app.use(helmet())
+app.use(morgan('common'))
+
 app.listen(1810, () => {
     console.log("Server is running!")
 })
