@@ -23,5 +23,8 @@
         "mongoose": "^6.5.2",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.19"
+    },
+    "devDependencies": {
+        "bcrypt": "^5.0.1"
     }
 }
