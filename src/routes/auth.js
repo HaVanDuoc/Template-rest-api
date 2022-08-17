@@ -3,7 +3,8 @@ const router = express.Router();
 const User = require("../models/Users");
 const bcrypt = require("bcrypt");
 
-//REGISTER
+// REGISTER
+// http://localhost:1810/api/auth/register
 router.post("/register", async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(10);
@@ -24,7 +25,8 @@ router.post("/register", async (req, res) => {
     }
 });
 
-//LOGIN
+// LOGIN
+// http://localhost:1810/api/auth/login
 router.post("/login", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
